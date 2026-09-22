@@ -1,6 +1,6 @@
 <h1>CYPHER WRITE UP</h1>
 
-{cypher.png}</br>
+<img width="697" height="384" alt="cypher" src="https://github.com/user-attachments/assets/4670984f-052e-4342-a96a-3308e1292b2e" /></br>
 
 <h2>MACHINE INFORMATION</h2>
 
@@ -24,7 +24,7 @@ Cypher is a medium-difficulty Linux machine. The attack starts with a Cypher inj
 
 Result:
 
-{ss1.png}</br>
+<img width="771" height="284" alt="ss1" src="https://github.com/user-attachments/assets/893f6adc-9516-4c61-a0b2-661aa3e9c28f" /></br>
 
 As I can see ports 22(SSH) and 80(HTTP) are open.
 
@@ -38,7 +38,7 @@ I see a website about "Graph ASM". When I read the "About" section, I understand
 
 <b>4-</b> When I look into the "/login" page source code, I find that they use "Neo4j".
 
-{ss2.png}</br>
+<img width="1366" height="647" alt="ss2" src="https://github.com/user-attachments/assets/c266658c-1b3e-4877-907d-acaba2136d7f" /></br>
 
 In that script they are checking access permissions.
 
@@ -48,13 +48,13 @@ In that script they are checking access permissions.
 
 Result:
 
-{ss3.png}</br>
+<img width="938" height="360" alt="ss3" src="https://github.com/user-attachments/assets/a41c9e1e-5702-4f10-bca9-b16af684d35f" /></br>
 
 "/testing" looks interesting.
 
 <b>6-</b> Visit "http://cypher.htb/testing".
 
-{ss4.png}</br>
+<img width="1362" height="206" alt="ss4" src="https://github.com/user-attachments/assets/5adfcdb1-d1e8-4b14-97e0-38432dfcdd54" /></br>
 
 I find and download the "custom-apoc-extension-1.0-SNAPSHOT.jar" file.
 
@@ -72,11 +72,11 @@ After downloading it, I use it with:
 
 Result:
 
-{ss5.png}</br>
+<img width="1366" height="619" alt="ss5" src="https://github.com/user-attachments/assets/7175fa06-7f0b-496d-a479-af3c8927c172" /></br>
 
 <b>9-</b> In this code an important part catches my eye.
 
-{ss6.png}</br>
+<img width="997" height="25" alt="ss6" src="https://github.com/user-attachments/assets/12f4a584-eef6-47ce-be38-18d2485fd291" /></br>
 
 This part does not have any injection protection, so there is a potential command injection vulnerability.
 
@@ -92,7 +92,7 @@ To understand this attack vector in more depth, I use the <a href="https://pente
 
 Result:
 
-{ss7.png}</br>
+<img width="1366" height="687" alt="ss7" src="https://github.com/user-attachments/assets/82ef0da6-fdf3-4750-a3fb-531396db27cc" /></br>
 
 The system gives me an error. In this error I can see a query. From now on I can try to find a suitable payload.
 
@@ -122,7 +122,7 @@ Now I'm ready to send the payload.
 
 Result:
 
-{ss8.png}</br>
+<img width="1182" height="143" alt="ss8" src="https://github.com/user-attachments/assets/6b0f30c3-838e-444b-92eb-f669ad04e68d" /></br>
 
 And I got the shell.
 
@@ -132,7 +132,7 @@ And I got the shell.
 
 Result:
 
-{ss9.png}</br>
+<img width="340" height="185" alt="ss9" src="https://github.com/user-attachments/assets/f7bf268d-f2d0-43e2-bd49-379056a47a6b" /></br>
 
 In this file I find credentials.
 
@@ -146,7 +146,7 @@ In this file I find credentials.
 
 Result:
 
-{ss10.png}</br>
+<img width="954" height="535" alt="ss10" src="https://github.com/user-attachments/assets/70eeec99-f1bd-4d4d-ae72-79e5c06b1829" /></br>
 
 This is how I get the user flag!!!
 
@@ -156,7 +156,7 @@ This is how I get the user flag!!!
 
 Result:
 
-{ss11.png}</br>
+<img width="1026" height="99" alt="ss11" src="https://github.com/user-attachments/assets/60426bdf-58eb-40de-b090-d9b1875c81f1" /></br>
 
 As I can see, there is a script called "bbot" and this user can execute it with sudo permissions.
 
@@ -168,11 +168,11 @@ When I look at how to write my own module, I also find the <a href="https://www.
 
 As the preset file, "bash_fnwn_preset.yml":
 
-{ss12.png}</br>
+<img width="274" height="87" alt="ss12" src="https://github.com/user-attachments/assets/5d2aebbd-2894-4908-91db-15006a902f68" /></br>
 
 As the module file, "bash_fnwn.py":
 
-{ss13.png}</br>
+<img width="415" height="260" alt="ss13" src="https://github.com/user-attachments/assets/8b374e2d-6046-402d-8189-2db57f81100b" /></br>
 
 <b>21-</b> Now I just need to send the files to the target system. For this I use netcat.
 
@@ -196,7 +196,7 @@ On my system:
 
 <code>nc 10.10.11.57 9090 < bash_fnwn.py</code>
 
-{ss14.png}</br>
+<img width="289" height="40" alt="ss14" src="https://github.com/user-attachments/assets/72588acf-aedb-4dc6-8763-026fdb0f0730" /></br>
 
 <b>22-</b> From now on I can execute "bbot" as sudo with my preset and module.
 
@@ -204,7 +204,7 @@ On my system:
 
 Result:
 
-{ss15.png}</br>
+<img width="305" height="108" alt="ss15" src="https://github.com/user-attachments/assets/a9383c53-245e-4103-8f6c-ce0694881a9d" /></br>
 
 With that, the system gives me the root shell and this is how I get the root flag!!!
 
