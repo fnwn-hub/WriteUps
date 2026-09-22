@@ -1,6 +1,6 @@
 <h1>DOG WRITE UP</h1>
 
-{dog.png}<br>
+<img width="694" height="380" alt="dog" src="https://github.com/user-attachments/assets/efd8a2ff-7a99-47ee-82e9-eba89141c083" /><br>
 
 <h2>MACHINE INFORMATION</h2>
 
@@ -24,17 +24,17 @@ Dog is an easy-rated Linux machine that involves reading sensitive information t
 
 Result:
 
-{ss1.png}<br>
+<img width="776" height="506" alt="ss1" src="https://github.com/user-attachments/assets/e74205dd-3fba-4a8f-a5c5-6793caeaea45" /><br>
 
 As I can see, port 22(SSH), 80(HTTP) and 5555 are open. The system uses "BackdropCMS" and there is a "/.git/" directory. Also, on port 5555, "SimpleHTTPServer 0.6 (Python 3.8.10)" is running.
 
 <b>2-</b> I visit "10.10.11.58:80".
 
-{ss2.png}<br>
+<img width="1366" height="687" alt="ss2" src="https://github.com/user-attachments/assets/d1d091fb-8164-40e0-8a28-f3f6d012afa8" /><br>
 
 In the About page, I find "support@dog.htb". This indicates that the host name is "dog.htb".
 
-{ss3.png}<br>
+<img width="1366" height="687" alt="ss3" src="https://github.com/user-attachments/assets/2ea983b8-dc44-4188-8425-45be1acf1cac" /><br>
 
 <b>3-</b> I add "dog.htb" host name to my "/etc/hosts" file.
 
@@ -42,7 +42,7 @@ In the About page, I find "support@dog.htb". This indicates that the host name i
 
 <b>4-</b> There is nothing useful to do in the web application, so I visit "http://dog.htb/.git/".
 
-{ss4.png}<br>
+<img width="594" height="571" alt="ss4" src="https://github.com/user-attachments/assets/34e5bbe6-ca1f-4693-bf17-daccc5ef3257" /><br>
 
 <b>5-</b> To gather more information, I use "git-dumper" to download all the files to my system.
 
@@ -52,13 +52,13 @@ In the About page, I find "support@dog.htb". This indicates that the host name i
 
 Result:
 
-{ss5.png}<br>
+<img width="791" height="96" alt="ss5" src="https://github.com/user-attachments/assets/dfd34d8f-98fe-437b-a8d5-500b39d3d91c" /><br>
 
 And there it is, all source code and configuration files.
 
 <b>6-</b> In the "settings.php" file, there is important information. First, I find the database configuration.
 
-{ss6.png}<br>
+<img width="543" height="43" alt="ss6" src="https://github.com/user-attachments/assets/39ef6dc7-73e4-48e1-bcc2-bb6ef7f7553d" /><br>
 
 As I can see, the system uses MySQL and the database credentials are:
 
@@ -68,13 +68,13 @@ As I can see, the system uses MySQL and the database credentials are:
 
 <b>7-</b> I also find some paths for configuration files in this file.
 
-{ss7.png}<br>
+<img width="743" height="40" alt="ss7" src="https://github.com/user-attachments/assets/db3f45ed-51f6-4704-822f-7b3ea48953fe" /><br>
 
 To get more information, I need to visit this path.
 
 <b>8-</b> When I visit the path, I find a bunch of JSON files.
 
-{ss8.png}<br>
+<img width="1308" height="329" alt="ss8" src="https://github.com/user-attachments/assets/8da32786-6237-49ed-8e41-911c9c393e3d" /><br>
 
 <b>9-</b> I need to find a valid username. For that:
 
@@ -82,7 +82,7 @@ To get more information, I need to visit this path.
 
 Result:
 
-{ss9.png}<br>
+<img width="207" height="43" alt="ss9" src="https://github.com/user-attachments/assets/b407dd3d-7df7-4490-b2a8-1b618064ad03" /><br>
 
 So I find a valid username:
 
@@ -90,7 +90,7 @@ So I find a valid username:
 
 <b>10-</b> I log in to the web application with "tiffany" as the username and "BackDropJ2024DS2024" as the password.
 
-{ss10.png}<br>
+<img width="1366" height="688" alt="ss10" src="https://github.com/user-attachments/assets/70683e4a-017c-4045-9b0c-05db46703a6a" /><br>
 
 Successfully logged in to the system.
 
@@ -100,17 +100,17 @@ Successfully logged in to the system.
 
 <b>12-</b> According to the exploit source, I must upload my module file to the system. For that, I use the "Manual Installation" option at the "/modules/install" path.
 
-{ss11.png}<br>
+<img width="1366" height="688" alt="ss11" src="https://github.com/user-attachments/assets/9351542d-603b-4206-bdb6-5c0655a781e9" /><br>
 
 After that, I upload my ZIP file to the system and access it through "/zip_file_name/reverse_shell_name.php".
 
 <b>13-</b> First, I need a reverse shell. I prefer to use the "PentestMonkey" reverse shell and name it "php-reverse-shell.php". In the code, I must change the IP address and port to my own values.
 
-{ss12.png}<br>
+<img width="309" height="44" alt="ss12" src="https://github.com/user-attachments/assets/e39e0f41-4698-4261-a181-9637b426cf2b" /><br>
 
 Second, I need an info file for the module upload.
 
-{ss13.png}<br>
+<img width="629" height="278" alt="ss13" src="https://github.com/user-attachments/assets/86e27a54-496e-4694-aed2-0fc45831f515" /><br>
 
 I create a file called "fnwn_rev" and put the reverse shell and info file into this directory. After compressing the directory, the file is ready to upload to the system.
 
@@ -120,7 +120,7 @@ I create a file called "fnwn_rev" and put the reverse shell and info file into t
 
 Result:
 
-{ss14.png}<br>
+<img width="322" height="80" alt="ss14" src="https://github.com/user-attachments/assets/396a30ce-49ff-483b-aa65-ed2c171f161e" /><br>
 
 <b>15-</b> Now I start listening on my system.
 
@@ -130,19 +130,19 @@ I upload the file and then visit "/modules/fnwn_rev/php-reverse-shell.php". I sh
 
 <b>16-</b> When I upload the file to the system:
 
-{ss15.png}<br>
+<img width="572" height="277" alt="ss15" src="https://github.com/user-attachments/assets/78badf8c-bdc2-4a8a-b200-b02ef5e2a9c5" /><br>
 
 I visit the "/modules/fnwn_rev/php-reverse-shell.php" path and get a response.
 
 Result:
 
-{ss16.png}<br>
+<img width="840" height="184" alt="ss16" src="https://github.com/user-attachments/assets/17f2746f-8a59-4e47-b763-ed493f0d22c5" /><br>
 
 And I got the reverse shell!!
 
 <b>17-</b> I find the user flag in the system, but I do not have permission to read it yet.
 
-{ss17.png}<br>
+<img width="277" height="165" alt="ss17" src="https://github.com/user-attachments/assets/363cb13f-1abb-44b6-8c62-479b72da1b56" /><br>
 
 <b>18-</b> So I try to connect via SSH as the "johncusack" user with the password "BackDropJ2024DS2024".
 
@@ -150,7 +150,7 @@ And I got the reverse shell!!
 
 Result:
 
-{ss18.png}<br>
+<img width="838" height="575" alt="ss18" src="https://github.com/user-attachments/assets/62a3e222-efc8-473f-81fe-ae3ef8648406" /><br>
 
 And this is how I get the user flag!!!
 
@@ -160,7 +160,7 @@ And this is how I get the user flag!!!
 
 Result:
 
-{ss19.png}<br>
+<img width="953" height="120" alt="ss19" src="https://github.com/user-attachments/assets/ef8f386b-d9bb-4b3b-b294-b73a471d91f3" /><br>
 
 As I can see, there is a command called "bee" that can be run with sudo privileges.
 
@@ -168,11 +168,11 @@ As I can see, there is a command called "bee" that can be run with sudo privileg
 
 First, the "Global Options" section:
 
-{ss20.png}<br>
+<img width="1363" height="337" alt="ss20" src="https://github.com/user-attachments/assets/4569e932-d877-4ac7-8986-52b1c0d0e81f" /><br>
 
 Second, the "ADVANCED" section:
 
-{ss21.png}<br>
+<img width="628" height="271" alt="ss21" src="https://github.com/user-attachments/assets/43ba5058-d6ad-4023-8083-a79c760d2caa" /><br>
 
 So I start researching how to use it.
 
@@ -186,7 +186,7 @@ So I start researching how to use it.
 
 Result:
 
-{ss22.png}<br>
+<img width="607" height="33" alt="ss22" src="https://github.com/user-attachments/assets/ff20a108-d718-4051-a04f-33d69bd8ed34" /><br>
 
 This is how I get the root flag!!!
 
