@@ -1,6 +1,6 @@
 <h1>CODE WRITE UP</h1>
 
-{code.png}<br>
+<img width="697" height="378" alt="code" src="https://github.com/user-attachments/assets/d11f90ef-55dd-4a65-89b0-69900472c686" /><br>
 
 <h2>MACHINE INFORMATION</h2>
 
@@ -24,19 +24,19 @@ Code is an easy Linux machine featuring a Python Code Editor web application vul
 
 Result:
 
-{ss1.png}<br>
+<img width="768" height="298" alt="ss1" src="https://github.com/user-attachments/assets/6503ee34-63ad-4b6d-81a5-6916f58123ee" /><br>
 
 As I can see, ports 22(SSH) and 5000(HTTP) are open.
 
 <b>2-</b> Visit "10.10.11.62:5000".
 
-{ss2.png}<br>
+<img width="1366" height="688" alt="ss2" src="https://github.com/user-attachments/assets/ee1fd3cf-a312-43f3-882d-7b550efbb66d" /><br>
 
 A Python code editor application welcomes me.
 
 <b>3-</b> I immediately try to import a module such as "os".
 
-{ss3.png}<br>
+<img width="1366" height="225" alt="ss3" src="https://github.com/user-attachments/assets/ce5fc537-aba6-4a6e-ba08-6330004d5178" /><br>
 
 As I can see, the system has a filter mechanism for imported modules.
 
@@ -44,7 +44,7 @@ As I can see, the system has a filter mechanism for imported modules.
 
 <b>5-</b> When I try the payload from the article, the system gives me the same error.
 
-{ss4.png}<br>
+<img width="1366" height="222" alt="ss4" src="https://github.com/user-attachments/assets/10559baa-fecc-4e1d-8152-9733ab4752da" /><br>
 
 I also try this payload for importing the "os" module, but again I hit the filter mechanism.
 
@@ -66,7 +66,7 @@ Then I start listening on my system.
 
 Result:
 
-{ss5.png}<br>
+<img width="499" height="71" alt="ss5" src="https://github.com/user-attachments/assets/31d25088-9677-4357-9e06-508e86cc245f" /><br>
 
 And it works!
 
@@ -76,13 +76,13 @@ And it works!
 
 Result:
 
-{ss6.png}<br>
+<img width="650" height="264" alt="ss6" src="https://github.com/user-attachments/assets/d91a1064-65a8-4970-a0ea-e8ec72cec40e" /><br>
 
 I got the shell.
 
 <b>10-</b> When I go one level back in the directory, I find "user.txt".
 
-{ss7.png}<br>
+<img width="273" height="116" alt="ss7" src="https://github.com/user-attachments/assets/69ec3431-1c90-4ca4-83e7-238246e642e7" /><br>
 
 This is how I get the user flag!
 
@@ -92,7 +92,7 @@ This is how I get the user flag!
 
 Result:
 
-{ss8.png}<br>
+<img width="613" height="50" alt="ss8" src="https://github.com/user-attachments/assets/a750ca6c-9529-4697-93b9-fd699ed8fedc" /><br>
 
 As I can see, the file type is SQLite3.
 
@@ -104,7 +104,7 @@ As I can see, the file type is SQLite3.
 
 Result:
 
-{ss9.png}<br>
+<img width="459" height="64" alt="ss9" src="https://github.com/user-attachments/assets/85a9a11a-90a7-4e04-857c-bec2ca3dd633" /><br>
 
 There are only two tables here. The "user" table is my target.
 
@@ -114,7 +114,7 @@ There are only two tables here. The "user" table is my target.
 
 Result:
 
-{ss10.png}<br>
+<img width="383" height="57" alt="ss10" src="https://github.com/user-attachments/assets/5e485be3-c691-4d18-9a6e-153fb67f0763" /><br>
 
 There are two user records. I get their passwords as MD5 hashes.
 
@@ -122,11 +122,11 @@ There are two user records. I get their passwords as MD5 hashes.
 
 Result for the "development" user:
 
-{ss11.png}<br>
+<img width="1001" height="55" alt="ss11" src="https://github.com/user-attachments/assets/faad57e4-9390-4854-870f-ab21e687d660" /><br>
 
 Result for the "martin" user:
 
-{ss12.png}<br>
+<img width="1005" height="57" alt="ss12" src="https://github.com/user-attachments/assets/f8fc4835-8487-4320-bfc0-4ef1077e0de6" /><br>
 
 I use Martin's credentials to establish an SSH connection.
 
@@ -139,7 +139,7 @@ password: nafeelswordsmaster</code>
 
 Result:
 
-{ss13.png}<br>
+<img width="851" height="569" alt="ss13" src="https://github.com/user-attachments/assets/3ac37b37-ce3c-491c-91b0-c8af030ab942" /><br>
 
 I can establish an SSH connection.
 
@@ -149,7 +149,7 @@ I can establish an SSH connection.
 
 Result:
 
-{ss14.png}<br>
+<img width="954" height="98" alt="ss14" src="https://github.com/user-attachments/assets/3fa1cae6-c621-4d54-ad12-cdcc3d3fc18a" /><br>
 
 I can execute "backy.sh" with sudo permissions.
 
@@ -159,13 +159,13 @@ I can execute "backy.sh" with sudo permissions.
 
 The first mechanism is:
 
-{ss15.png}<br>
+<img width="271" height="39" alt="ss15" src="https://github.com/user-attachments/assets/450217d9-3bc6-4b01-b46e-3a1b2c7636ad" /><br>
 
 There is a whitelist for directories that can be archived.
 
 The second mechanism is:
 
-{ss16.png}<br>
+<img width="770" height="32" alt="ss16" src="https://github.com/user-attachments/assets/3b66435b-077d-43d9-8d24-a7c11ad8c760" /><br>
 
 There is sanitization for "../". Therefore, if I use "....//", the code only removes the "../" part from the middle of the payload.
 
@@ -175,7 +175,7 @@ There is sanitization for "../". Therefore, if I use "....//", the code only rem
 
 Result:
 
-{ss17.png}<br>
+<img width="390" height="215" alt="ss17" src="https://github.com/user-attachments/assets/32acc8ec-1a85-4d1c-a088-cc1beadab845" /><br>
 
 There is a "directories_to_archive" section used to specify which directories will be archived.
 
@@ -187,7 +187,7 @@ I make some changes to the configuration file.
 
 Result:
 
-{ss18.png}<br>
+<img width="392" height="135" alt="ss18" src="https://github.com/user-attachments/assets/69d96c2c-5dea-409b-be5c-82f9268204a8" /><br>
 
 I remove the "exclude" section and modify "directories_to_archive" to use my payload: "/home/....//root/".
 
@@ -197,7 +197,7 @@ I remove the "exclude" section and modify "directories_to_archive" to use my pay
 
 Result:
 
-{ss19.png}<br>
+<img width="494" height="114" alt="ss19" src="https://github.com/user-attachments/assets/abb4f62e-ae1f-4380-a95e-127267391749" /><br>
 
 The script works without an error.
 
@@ -207,7 +207,7 @@ The script works without an error.
 
 Result:
 
-{ss20.png}<br>
+<img width="567" height="383" alt="ss20" src="https://github.com/user-attachments/assets/f85a301f-fcc9-4430-ac8c-ac3f8ef51764" /><br>
 
 <b>22-</b> Now I just need to go to the extracted "/root" directory.
 
@@ -215,7 +215,7 @@ Result:
 
 Result:
 
-{ss21.png}<br>
+<img width="340" height="48" alt="ss21" src="https://github.com/user-attachments/assets/0cc0b4ce-6c4c-4933-9538-3ef14a5be5b0" /><br>
 
 And this is how I get the root flag!
 
