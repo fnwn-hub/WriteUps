@@ -1,6 +1,6 @@
 <h1>CODE WRITE UP</h1>
 
-<img width="697" height="378" alt="code" src="https://github.com/user-attachments/assets/544ce1ca-2ccf-4060-b59c-7f939f82ae3e" /><br>
+<img width="697" height="378" alt="code" src="https://github.com/user-attachments/assets/bfc24088-887e-432b-95ee-93974e045fbf" /><br>
 
 <h2>MACHINE INFORMATION</h2>
 
