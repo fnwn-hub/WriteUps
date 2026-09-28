@@ -5,7 +5,7 @@
 Phishing complainings are the most common case I encounter in/from SOC training. A user forward an email, stating “This email looks suspicious” and it is the analyst’s job to evaluate as soon as possible. In this write up, I share the perspective I acquired during my training, even though I have not yet worked on a live case.
 
 <h2>Look At The Header First, Not The Body</h2>
-Directly focusing on email’s content(message, link) is the most common mistake every beginners do. However, to determine whether an email actually originated from the source it claims to be from, the **header** (email header information) is examined first. The header records every servers email pass through and authentication results.
+Directly focusing on email’s content(message, link) is the most common mistake every beginners do. However, to determine whether an email actually originated from the source it claims to be from, the <b>**header**</b> (email header information) is examined first. The header records every servers email pass through and authentication results.
 
 <h2>Three Things I Check First</h2>
 <h3>1. Does the “From” Address Match What’s Displayed?</h3>
@@ -38,4 +38,4 @@ If more than two of these four come back suspicious, I isolate the email and esc
 This post summarizes what I’ve learned working through training scenarios, not an actual incident. I haven’t yet had the chance to triage phishing reports in a live SOC environment. As I gain that experience, I plan to share more detailed posts with real examples.
 
 <h2>Conclusion</h2>
-The real skill in phishing analysis is turning “this email feels off” into a decision backed by concrete evidence from the header. That’s the biggest thing SOC training has given me so far: turning instinct into checkable signals.
+The real skill in phishing analysis is turning “this email feels off” into a decision backed by concrete evidence from the header. That’s the biggest thing SOC training has given me so far: <b>turning instinct into checkable signals.</b>
