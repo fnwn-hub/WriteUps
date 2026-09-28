@@ -14,9 +14,11 @@ The display name in an email client (e.g., “IT Support”) and the actual send
 <h3>2. What Do SPF, DKIM, and DMARC Say?</h3>
 These three concepts confused me most when I first started, but the logic behind them is actually simple:
 
-<b>SPF (Sender Policy Framework) -></b> Was this email sent from a server the domain owner actually authorized?<br>
-<b>DKIM (DomainKeys Identified Mail) -></b> Was the email altered in transit? (A digital signature check.)<br>
-<b>DMARC -></b> If SPF or DKIM fails, what should happen reject it, send it to spam or let it through?<br>
+<ul>
+<li><b>SPF (Sender Policy Framework) -></b> Was this email sent from a server the domain owner actually authorized?</li>
+<li><b>DKIM (DomainKeys Identified Mail) -></b> Was the email altered in transit? (A digital signature check.)</li>
+<li><b>DMARC -></b> If SPF or DKIM fails, what should happen reject it, send it to spam or let it through?</li>
+</ul>
 These three results usually show up in the Authentication-Results line of the header. If all three don’t come back as “pass,” that alone doesn’t confirm malicious intent but it should raise your suspicion level considerably.
 
 <h3>3. Where Do the “Received” Lines Say This Came From?</h3>
@@ -28,10 +30,13 @@ After checking the header, if there’s a link, I hover over it before clicking 
 <h2>A Simple Decision Schema</h2>
 Here’s the simplified decision flow I’ve put together from training:
 
-<b>Does the sender address match the display name? -></b> Mismatch raises suspicion.<br>
-<b>Do SPF/DKIM/DMARC all come back “pass”? -></b> If not, suspicion increases.<br>
-<b>Does the link go to the real domain, or a lookalike one? -></b> A lookalike domain is a strong phishing signal.<br>
-<b>Does the language create urgency or threat? (e.g., “Your account will be suspended in 24 hours”) -></b> A classic social engineering signal.<br>
+<ul>
+<li><b>Does the sender address match the display name? -></b> Mismatch raises suspicion.</li>
+<li><b>Do SPF/DKIM/DMARC all come back “pass”? -></b> If not, suspicion increases.</li>
+<li><b>Does the link go to the real domain, or a lookalike one? -></b> A lookalike domain is a strong phishing signal.</li>
+<li><b>Does the language create urgency or threat? (e.g., “Your account will be suspended in 24 hours”) -></b> A classic social engineering signal.</li>
+</ul>
+
 If more than two of these four come back suspicious, I isolate the email and escalate it.
 
 <h2>Where I Stand Right Now</h2>
